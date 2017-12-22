@@ -1,0 +1,36 @@
+.default {
+  margin-top: 1em;
+  width: 100%;
+  max-width: 650px;
+  min-height: 80px;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: justify;
+  pointer-events: none;
+}
+.disabled {
+  composes: default;
+  color: gray;
+}
+.hidden {
+  composes: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wordActive {
+  background-color: #ede7f6;
+  box-shadow: 0 0 0 2px #ede7f6;
+  border-radius: 2px;
+}
+.wordError {
+  composes: wordActive;
+  background-color: #ef9a9a;
+  box-shadow: 0 0 0 2px #ef9a9a;
+}
+.symbolActive {
+  background-color: #d1c4e9;
+}
+.wordError .symbolActive {
+  background-color: #e57373;
+}

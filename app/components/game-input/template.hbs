@@ -1,0 +1,12 @@
+<input type="text"
+  class="{{className}}"
+  disabled={{disabled}}
+  placeholder="{{if disabled disabledPlaceholder}}"
+  onkeydown={{action 'processEvent'}}
+  onkeyup={{action 'processEvent'}}
+  onkeypress={{action 'processEvent'}}
+  oninput={{action 'onInput'}}
+  onfocus={{action 'processEvent'}}
+  onblur={{action 'onBlur'}}
+  onpaste={{prevent-default}}
+  onmousedown={{prevent-default}}>

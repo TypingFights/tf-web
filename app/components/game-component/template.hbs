@@ -1,0 +1,33 @@
+{{t 'game.type'}}: {{t (concat 'game.type.' parameters.type)}},
+{{t 'game.language'}}: {{t (concat 'game.language.' parameters.language)}}
+{{#if gameCountdown.isRunning}}
+  <div>{{t 'game.timeLeftBeforeStart' count=secondsBeforeStart}}
+    {{t 'game.secondsBeforeStart' count=secondsBeforeStart}}</div>
+{{/if}}
+{{#if finished}}
+  <div>{{t 'game.finished'}}.</div>
+  <div>{{t 'game.averageSpeed'}}: {{speed textLength totalTimeMilliseconds}}</div>
+  <div>{{t 'game.textLength'}}: {{t 'game.text.symbolsNumber' count=textLength}}</div>
+  <div>{{t 'game.correctionsDoneNumber'}}: {{correctionsDoneNumber}}</div>
+{{else}}
+  {{ui.text
+      text=parameters.text
+      language=parameters.language
+      currentPosition=currentSymbolPosition
+      hidden=textHidden
+      disabled=gameCountdown.isRunning
+      error=hasError}}
+  {{ui.input
+      disabled=gameCountdown.isRunning
+      disabledPlaceholder=(t 'game.input.placeholder')
+      clearOnSpace=true
+      autofocus=true
+      error=hasError}}
+  {{ui.keyboard
+      language=parameters.language
+      state=keyboardState
+      textVisible=(unless textHidden false true)
+      nextSymbol=currentSymbol
+      nextSymbolPosition=currentSymbolPosition
+      error=hasError}}
+{{/if}}

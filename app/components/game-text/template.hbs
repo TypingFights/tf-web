@@ -1,0 +1,13 @@
+{{#if hidden}}
+  <div class="{{styles.hidden}}">{{t 'game.text.hidden'}}</div>
+{{else}}
+  <div class="{{if disabled styles.disabled styles.default}}" lang="{{language}}">
+    {{#each (unbound words) as |word index| ~}}
+      <span class="{{if word.hasError styles.wordError (if word.isActive styles.wordActive '')}}">
+        {{~#each word.symbols as |symbol| ~}}
+          <span class="{{if symbol.isActive styles.symbolActive ''}}">{{symbol.value}}</span>
+        {{~/each~}}
+      </span>
+    {{~/each}}
+  </div>
+{{/if}}

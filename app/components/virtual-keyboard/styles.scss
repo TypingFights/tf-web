@@ -1,0 +1,64 @@
+.keyboard {
+  display: flex;
+  width: 650px;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px;
+  height: 40px;
+  margin-top: 3px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  text-align: center;
+  font-family: Arial;
+  font-size: 0.75rem;
+  pointer-events: none;
+  transition: background-color 0.1s ease-out;
+}
+.backspace {
+  width: 80px;
+}
+.tab {
+  width: 55px;
+}
+.backslash {
+  width: 65px;
+}
+.capslock {
+  width: 70px;
+}
+.enter {
+  width: 95px;
+}
+.shiftLeft {
+  width: 85px;
+}
+.shiftRight {
+  width: 125px;
+}
+.ctrlLeft,
+.altLeft,
+.altRight,
+.ctrlRight {
+  width: 55px;
+}
+.space {
+  width: 325px;
+}
+.keyPrompted {
+  background-color: #81c784;
+}
+.keyDowned {
+  background-color: #9575cd;
+}
+.keyPressed {
+  background-color: #ba68c8;
+}
+.keyReleased {
+  background-color: #64b5f6;
+}

@@ -1,0 +1,69 @@
+{
+  "name": "typing-fights",
+  "version": "0.0.0",
+  "description": "A web client for the www.typingfights.com",
+  "homepage": "http://www.typingfights.com",
+  "private": true,
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TypingFights/tf-web.git"
+  },
+  "scripts": {
+    "build": "ember build",
+    "start": "ember server",
+    "test": "ember test"
+  },
+  "dependencies": {
+    "broccoli-asset-rev": "^2.4.5",
+    "ember-ajax": "^3.0.0",
+    "ember-cli": "~2.17.0",
+    "ember-cli-app-version": "^3.0.0",
+    "ember-cli-babel": "^6.3.0",
+    "ember-cli-dependency-checker": "^2.1.0",
+    "ember-cli-htmlbars": "^2.0.1",
+    "ember-cli-htmlbars-inline-precompile": "^1.0.2",
+    "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-qunit": "^4.0.0",
+    "ember-cli-sass": "^7.0.0",
+    "ember-cli-shims": "^1.1.0",
+    "ember-cli-sri": "^2.1.0",
+    "ember-cli-uglify-es": "^1.0.4",
+    "ember-concurrency": "^0.8.7",
+    "ember-config-service": "^0.1.6",
+    "ember-css-modules": "^0.7.2",
+    "ember-css-modules-sass": "^1.0.0",
+    "ember-data": "~2.17.0",
+    "ember-export-application-global": "^2.0.0",
+    "ember-i18n": "^5.0.2",
+    "ember-load-initializers": "^1.0.0",
+    "ember-native-dom-event-dispatcher": "^0.6.3",
+    "ember-resolver": "^4.0.0",
+    "ember-route-action-helper": "^2.0.3",
+    "ember-source": "~2.17.0",
+    "ember-websockets": "^7.0.3",
+    "loader.js": "^4.2.3",
+    "urljs": "^2.3.1"
+  },
+  "devDependencies": {
+    "@ember-decorators/argument": "^0.8.1",
+    "babel-eslint": "^8.0.2",
+    "chai-as-promised": "^7.1.1",
+    "ember-cli-chai": "^0.4.2",
+    "ember-cli-eslint": "^4.0.0",
+    "ember-cli-sassdoc": "^0.1.2",
+    "ember-decorators": "^1.3.2",
+    "ember-native-dom-helpers": "^0.5.2",
+    "ember-sinon": "^1.0.1",
+    "ember-sinon-qunit": "^2.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "sinon-chai": "^2.12.0"
+  },
+  "engines": {
+    "node": "^4.5 || 6.* || >= 7.*"
+  }
+}
