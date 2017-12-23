@@ -4,9 +4,11 @@
   <div class="{{if disabled styles.disabled (if error styles.error styles.default)}}"
     lang="{{language}}">
     {{#each (unbound words) as |word index| ~}}
-      <span class="{{if word.isActive styles.wordActive ''}}">
+      <span class="{{if highlightWord (if word.isActive styles.wordActive '')}}">
         {{~#each word.symbols as |symbol| ~}}
-          <span class="{{if symbol.isActive styles.symbolActive ''}}">{{symbol.value}}</span>
+        <span class="{{if highlightSymbol (if symbol.isActive styles.symbolActive '')}}">
+          {{~symbol.value~}}
+        </span>
         {{~/each~}}
       </span>
     {{~/each}}
