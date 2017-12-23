@@ -15,7 +15,6 @@ export default Component.extend({
     const symbols = this.get('symbols');
     const words = this.get('wordsBounds').map((bounds, index) => ({
       isActive: index === 0,
-      hasError: false,
       symbols: symbols.slice(bounds[0], bounds[1]).map((value, i) => ({
         isActive: index === 0 && i === 0,
         value,
@@ -68,17 +67,6 @@ export default Component.extend({
       [`hash.${currentWordPosition}.symbols.${currentSymbolPosition}.isActive`]: true,
       lastSymbolPosition: currentSymbolPosition,
     });
-  }),
-  errorObserver: observer('error', function () {
-    const error = this.get('error');
-    let wordPosition = this.getPosition().currentWordPosition;
-    if (error) {
-      this.set('lastErrorPosition', wordPosition);
-    } else {
-      wordPosition = this.get('lastErrorPosition');
-    }
-
-    this.set(`hash.${wordPosition}.hasError`, error);
   }),
   getPosition() {
     const {
