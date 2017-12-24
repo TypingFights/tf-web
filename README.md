@@ -1,6 +1,7 @@
 # TypingFights
 
 [![Build Status](https://travis-ci.org/TypingFights/tf-web.svg?branch=master)](https://travis-ci.org/TypingFights/tf-web)
+[![codecov](https://codecov.io/gh/TypingFights/tf-web/branch/master/graph/badge.svg)](https://codecov.io/gh/TypingFights/tf-web)
 
 A web client for the [www.typingfights.com](http://www.typingfights.com/)
 

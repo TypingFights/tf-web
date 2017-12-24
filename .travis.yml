@@ -20,6 +20,13 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
+    - COVERAGE=true
 
 before_install:
   - npm config set spin false
+
+install:
+  - npm install -g codecov
+
+after_script:
+  - codecov

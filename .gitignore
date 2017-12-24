@@ -4,6 +4,7 @@
 /dist
 /tmp
 /sassdoc
+/coverage
 
 # dependencies
 /node_modules
