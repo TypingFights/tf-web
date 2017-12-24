@@ -15,6 +15,7 @@ addons:
 cache:
   directories:
     - $HOME/.npm
+    - "node_modules"
 
 env:
   global:
@@ -27,6 +28,7 @@ before_install:
 
 install:
   - npm install -g codecov
+  - npm install
 
 after_script:
   - codecov
