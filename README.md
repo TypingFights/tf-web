@@ -1,5 +1,7 @@
 # TypingFights
 
+[![Build Status](https://travis-ci.org/TypingFights/tf-web.svg?branch=master)](https://travis-ci.org/TypingFights/tf-web)
+
 A web client for the [www.typingfights.com](http://www.typingfights.com/)
 
 ## Prerequisites
