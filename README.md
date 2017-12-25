@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/TypingFights/tf-web.svg?branch=master)](https://travis-ci.org/TypingFights/tf-web)
 [![codecov](https://codecov.io/gh/TypingFights/tf-web/branch/master/graph/badge.svg)](https://codecov.io/gh/TypingFights/tf-web)
+[![Maintainability](https://api.codeclimate.com/v1/badges/da9675bbcd6175f075bc/maintainability)](https://codeclimate.com/github/TypingFights/tf-web/maintainability)
 
 A web client for the [www.typingfights.com](http://www.typingfights.com/)
 
