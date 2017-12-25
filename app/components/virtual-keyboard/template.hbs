@@ -1,9 +1,9 @@
 <div local-class="keyboard">
-  {{~#each keys as |key| ~}}
+  {{~#each keyCodes as |code| ~}}
     {{virtual-keyboard-key
-        code=(unbound key.code)
-        state=(get state (unbound (get key "code")))
-        prompted=(get promptedState (unbound (get key "code")))
-        text=(unbound key.text)}}
+        code=code
+        state=(get state code)
+        prompted=(get promptedState code)
+        text=(get labels code)}}
   {{~/each~}}
 </div>
