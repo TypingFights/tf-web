@@ -23,6 +23,18 @@ export default class VirtualKeyboardKeyComponent extends Component {
     return name;
   }
 
+  @className
+  @computed('code')
+  get specialKeyClassName() {
+    const code = this.get('code');
+    const name = code[0].toLowerCase() + code.slice(1);
+    if (name in styles) {
+      return styles[name];
+    }
+
+    return false;
+  }
+
   checkReleased() {
     if (this.get('state') === 0) {
       this.set('state', null);
