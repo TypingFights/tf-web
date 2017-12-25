@@ -1,4 +1,6 @@
 import Component from '@ember/component';
+import { argument } from '@ember-decorators/argument';
+import { required } from '@ember-decorators/argument/validation';
 import { set } from '@ember/object';
 import { computed } from 'ember-decorators/object';
 import { className, classNames } from 'ember-decorators/component';
@@ -6,6 +8,19 @@ import styles from '../virtual-keyboard/styles';
 
 @classNames(styles.key)
 export default class VirtualKeyboardKeyComponent extends Component {
+  @required
+  @argument
+  code;
+
+  @argument
+  state;
+
+  @argument
+  prompted;
+
+  @argument
+  text;
+
   @className
   @computed('state', 'prompted')
   get stateClassName() {
