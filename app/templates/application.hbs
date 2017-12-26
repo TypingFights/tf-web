@@ -1,1 +1,6 @@
-{{outlet}}
+<div local-class="wrapper">
+  <header local-class="topPanel">{{outlet 'topPanel'}}</header>
+  <div local-class="main">{{outlet}}</div>
+  <aside local-class="leftPanel">{{outlet 'leftPanel'}}</aside>
+  <aside local-class="rightPanel">{{outlet 'rightPanel'}}</aside>
+</div>

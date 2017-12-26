@@ -21,4 +21,11 @@ module.exports = {
 
     return shortClassName;
   },
+
+  // TODO: find better way to deal with the ember-css-modules-sass
+  // scss files concatenation:
+  headerModules: [
+    'typing-fights/styles/_reset',
+    'typing-fights/styles/application',
+  ],
 };
