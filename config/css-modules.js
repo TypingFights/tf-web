@@ -1,11 +1,11 @@
 /* eslint-env node, es6 */
 
 const characters = 'abcdefghijklmnopqrstuvwxyz';
-const classNamesMap = new Map;
+const classNamesMap = new Map();
 
 // Generate short sequential classNames:
 function generateShortClassName(number) {
-  const length = characters.length;
+  const { length } = characters;
   return characters[length - 1]
     .repeat(Math.floor(number / length)) + characters[number % length];
 }
