@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { argument } from '@ember-decorators/argument';
+import { type, optional } from '@ember-decorators/argument/type';
 import { required } from '@ember-decorators/argument/validation';
 import { set } from '@ember/object';
 import { computed } from 'ember-decorators/object';
@@ -10,15 +11,19 @@ import styles from '../virtual-keyboard/styles';
 export default class VirtualKeyboardKeyComponent extends Component {
   @required
   @argument
+  @type('string')
   code;
 
   @argument
+  @type(optional('number'))
   state;
 
   @argument
+  @type(optional('boolean'))
   prompted;
 
   @argument
+  @type(optional('string'))
   text;
 
   @className

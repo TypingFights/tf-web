@@ -31,7 +31,7 @@ export default Component.extend({
     this.set('promptedState.Backspace', error);
   }),
   clearHint(codes) {
-    codes.forEach(code => this.set(`promptedState.${code}`, null));
+    codes.forEach(code => this.set(`promptedState.${code}`, false));
   },
   showHint(codes) {
     codes.forEach(code => this.set(`promptedState.${code}`, true));
