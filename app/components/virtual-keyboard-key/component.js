@@ -67,7 +67,7 @@ export default class VirtualKeyboardKeyComponent extends Component {
     this.element.textContent = this.get('text');
   }
 
-  willDestoryElement() {
+  willDestroyElement() {
     this.element.removeEventListener('transitionend', this.get('transitionHandler'));
   }
 }

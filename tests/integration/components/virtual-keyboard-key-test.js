@@ -32,3 +32,30 @@ test('it should set className properly with the `state` argument', async functio
   expect(key.classList.contains(styles.keyPressed)).to.be.false;
   expect(key.classList.contains(styles.keyReleased)).to.be.false;
 });
+
+test('it should set className properly with the `prompted` argument', async function (expect) {
+  this.set('prompted', true);
+  this.render(hbs`{{virtual-keyboard-key code='KeyQ' prompted=prompted}}`);
+  const key = await find(`.${styles.key}`);
+  expect(key.classList.contains(styles.keyPrompted)).to.be.true;
+  this.set('prompted', false);
+  expect(key.classList.contains(styles.keyPrompted)).to.be.false;
+});
+
+test('it should remove the `keyReleased` class after a `transitionend`', async function (expect) {
+  this.set('state', 0);
+  this.render(hbs`{{virtual-keyboard-key code='KeyQ' state=state}}`);
+  const key = await find(`.${styles.key}`);
+  const event = new TransitionEvent('transitionend');
+  key.dispatchEvent(event);
+  expect(this.get('state'), 'should set the `state` property to null').to.be.equal(null);
+});
+
+test('it should remove the `transitionend` event handler properly', async function (expect) {
+  this.render(hbs`{{virtual-keyboard-key code='KeyQ'}}`);
+  const key = await find(`.${styles.key}`);
+  const spy = this.spy(key, 'removeEventListener');
+  this.clearRender();
+  this.render(hbs`{{virtual-keyboard-key code='KeyQ'}}`);
+  expect(spy).to.have.been.calledWith('transitionend');
+});
