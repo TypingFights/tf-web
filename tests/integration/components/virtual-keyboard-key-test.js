@@ -59,3 +59,28 @@ test('it should remove the `transitionend` event handler properly', async functi
   this.render(hbs`{{virtual-keyboard-key code='KeyQ'}}`);
   expect(spy).to.have.been.calledWith('transitionend');
 });
+
+test('it should set an unique css class for special keys', async function (expect) {
+  this.set('code', 'KeyQ');
+  this.render(hbs`{{virtual-keyboard-key code=code}}`);
+  const key = await find(`.${styles.key}`);
+  const codes = [
+    'Backspace',
+    'Tab',
+    'Backslash',
+    'CapsLock',
+    'Enter',
+    'ShiftLeft',
+    'ShiftRight',
+    'ControlLeft',
+    'AltLeft',
+    'AltRight',
+    'ControlRight',
+    'Space',
+  ];
+  codes.forEach((code) => {
+    this.set('code', code);
+    const name = code[0].toLowerCase() + code.slice(1);
+    expect(key.classList.contains(styles[name]), `[${code}] check`).to.be.true;
+  });
+});
