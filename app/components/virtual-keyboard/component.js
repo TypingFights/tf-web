@@ -7,9 +7,7 @@ export default Component.extend({
   tagName: '',
   keyCodes,
   labels: computed('language', 'layout', function () {
-    const { regular } = layouts.en;
-    const own = layouts[this.get('language')][this.get('layout')];
-    return this.get('keyCodes').map(code => own[code] || regular[code]);
+    return (new layouts[this.get('language')][this.get('layout')]()).labels;
   }),
   promptedState: {},
   lastSymbol: '',
