@@ -1,6 +1,7 @@
-function removeGetter(propertyName, ownPropertyName, intermediateValue) {
+function removeGetter(propertyName, ownPropertyName, intermediateObject) {
   Object.defineProperty(this, propertyName, {
-    value: Object.assign(intermediateValue, this[ownPropertyName]),
+    value: Object.assign(intermediateObject || {}, this[ownPropertyName]),
+    enumerable: true,
   });
   return this[propertyName];
 }
