@@ -1,13 +1,32 @@
-export const KeyboardLayoutMixin = Base => class extends Base {
-  get labels() {
-    const Super = super.constructor;
-    return Object.assign((new Super()).labels, this.ownLabels);
-  }
+function removeGetter(propertyName, ownPropertyName, intermediateValue) {
+  Object.defineProperty(this, propertyName, {
+    value: Object.assign(intermediateValue, this[ownPropertyName]),
+  });
+  return this[propertyName];
+}
+
+export const KeyboardLayoutMixin = (Base) => {
+  const base = new Base();
+  const { labels, charCodesMap } = base;
+
+  return class extends Base {
+    get labels() {
+      return removeGetter.call(this, 'labels', 'ownLabels', labels);
+    }
+
+    get charCodesMap() {
+      return removeGetter.call(this, 'charCodesMap', 'ownCharCodesMap', charCodesMap);
+    }
+  };
 };
 
 export class BaseLayout {
   get labels() {
     return this.ownLabels;
+  }
+
+  get charCodesMap() {
+    return this.ownCharCodesMap;
   }
 
   ownLabels = {
@@ -72,6 +91,8 @@ export class BaseLayout {
     MetaRight: '',
     ControlRight: 'Ctrl',
   };
+
+  ownCharCodesMap = {};
 }
 
 export default KeyboardLayoutMixin;

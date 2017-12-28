@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import layouts from 'typing-fights/keyboards/layouts';
 
 export default Route.extend({
   gameSocket: service(),
@@ -12,11 +13,14 @@ export default Route.extend({
   },
 
   model() {
+    const language = 'en';
+    const userLayout = 'regular';
     /* eslint max-len: 0 */
     return {
       text: 'But his misery did not last long. Almost at once there came a bump, and then a second bump, and two children were standing before him. The wood in front of him had been quite empty a second before and he knew they had not come from behind his tree, for he would have heard them.',
       type: 'normal',
-      language: 'en',
+      language,
+      layout: new layouts[language][userLayout](),
       timeout: 5,
     };
   },
