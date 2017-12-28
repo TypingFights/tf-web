@@ -42,7 +42,7 @@ export class BaseLayout {
     Digit9: '9',
     Digit0: '0',
     Minus: '-',
-    Equal: '+',
+    Equal: '=',
     Backspace: 'Backspace',
     Tab: 'Tab',
     KeyQ: 'Q',

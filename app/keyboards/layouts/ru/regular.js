@@ -2,6 +2,7 @@ import { KeyboardLayoutMixin, BaseLayout } from 'typing-fights/keyboards/layouts
 
 export default class CyrillicRegularLayout extends KeyboardLayoutMixin(BaseLayout) {
   ownLabels = {
+    Backquote: 'Ё',
     KeyQ: 'Й',
     KeyW: 'Ц',
     KeyE: 'У',
