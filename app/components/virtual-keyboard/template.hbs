@@ -1,9 +1,13 @@
 <div local-class="keyboard">
-  {{~#each layout.physical.keys as |code| ~}}
-    {{virtual-keyboard-key
-        code=code
-        state=(get state code)
-        prompted=(get promptedState code)
-        text=(get layout.logical.labels code)}}
+  {{~#each layout.physical.rows as |row| ~}}
+    <div local-class="row">
+      {{~#each row as |code| ~}}
+        {{virtual-keyboard-key
+            code=code
+            state=(get state code)
+            prompted=(get promptedState code)
+            text=(get layout.logical.labels code)}}
+      {{~/each~}}
+    </div>
   {{~/each~}}
 </div>
