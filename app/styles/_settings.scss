@@ -1,0 +1,11 @@
+////
+/// Global variables.
+/// @access public
+/// @type Length
+/// @author Daniil Filippov <filippovdaniil@gmail.com>
+////
+
+/// Grid column width value for the side panels.
+$layout-panel-width: minmax(min-content, 30ch);
+/// Grid column width value for the main content.
+$layout-content-width: minmax(min-content, 65ch);
