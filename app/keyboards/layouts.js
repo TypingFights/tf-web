@@ -1,7 +1,7 @@
-import en from './layouts/en';
-import ru from './layouts/ru';
+import physical from './layouts/physical';
+import logical from './layouts/logical';
 
 export default {
-  en,
-  ru,
+  physical,
+  logical,
 };

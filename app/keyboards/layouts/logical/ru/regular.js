@@ -1,4 +1,7 @@
-import { KeyboardLayoutMixin, BaseLayout } from 'typing-fights/keyboards/layouts/base';
+import {
+  KeyboardLayoutMixin,
+  BaseLayout,
+} from 'typing-fights/keyboards/layouts/logical/base';
 
 export default class CyrillicRegularLayout extends KeyboardLayoutMixin(BaseLayout) {
   ownLabels = {

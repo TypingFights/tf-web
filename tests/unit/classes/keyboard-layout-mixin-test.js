@@ -1,4 +1,4 @@
-import { KeyboardLayoutMixin } from 'typing-fights/keyboards/layouts/base';
+import { KeyboardLayoutMixin } from 'typing-fights/keyboards/layouts/logical/base';
 import { module as moduleFor } from 'qunit';
 import { test } from '../../helpers/qunit-wrapper';
 

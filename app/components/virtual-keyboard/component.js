@@ -1,10 +1,9 @@
 import Component from '@ember/component';
 import { observer } from '@ember/object';
-import keyCodes, { charCodesMap } from 'typing-fights/keyboards/codes';
+import charCodesMap from 'typing-fights/keyboards/codes';
 
 export default Component.extend({
   tagName: '',
-  keyCodes,
   promptedState: {},
   lastSymbol: '',
   nextSymbolObserver: observer('textVisible', 'nextSymbolPosition', function () {
@@ -33,7 +32,7 @@ export default Component.extend({
     codes.forEach(code => this.set(`promptedState.${code}`, true));
   },
   getCodes(char) {
-    const foreignCharCodeMap = this.get('layout.charCodesMap');
+    const foreignCharCodeMap = this.get('layout.logical.charCodesMap');
     const charCode = char.charCodeAt(0);
     const codes = charCode in foreignCharCodeMap ?
       charCodesMap[foreignCharCodeMap[charCode]] : charCodesMap[charCode];

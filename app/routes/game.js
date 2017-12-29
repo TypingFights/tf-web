@@ -20,7 +20,10 @@ export default Route.extend({
       text: 'But his misery did not last long. Almost at once there came a bump, and then a second bump, and two children were standing before him. The wood in front of him had been quite empty a second before and he knew they had not come from behind his tree, for he would have heard them.',
       type: 'normal',
       language,
-      layout: new layouts[language][userLayout](),
+      layout: {
+        physical: new layouts.physical.ANSI(),
+        logical: new layouts.logical[language][userLayout](),
+      },
       timeout: 5,
     };
   },
