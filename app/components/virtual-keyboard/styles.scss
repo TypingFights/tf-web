@@ -89,6 +89,12 @@ $key-margin-base: 0.2em;
   border-width: 1px;
   border-style: dashed;
 }
+.metaLeft,
+.metaRight,
+.contextMenu {
+  opacity: 0.5;
+}
+
 .keyPrompted {
   background-color: $tf-green;
   border-color: darken($tf-green, 20%);
