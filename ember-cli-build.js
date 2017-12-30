@@ -13,6 +13,9 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     vendorFiles,
     cssModules,
+    sassOptions: {
+      includePaths: ['./app/styles'],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

@@ -2,12 +2,14 @@
 /// Styles for the visual keyboard component.
 /// @access private
 /// @type Length
+/// @todo Get rid of relative import paths
 /// @author Daniil Filippov <filippovdaniil@gmail.com>
 ////
 
+@import "../../../app/styles/colors";
+
 /// Keyboard key size.
 $key-size: 3.25em;
-
 /// Keyboard key margins and paddings base value.
 $key-margin-base: 0.2em;
 
@@ -29,6 +31,7 @@ $key-margin-base: 0.2em;
 }
 
 .key {
+  box-sizing: border-box;
   flex: 0 1 $key-size;
   height: $key-size;
   margin: $key-margin-base;
@@ -38,13 +41,14 @@ $key-margin-base: 0.2em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: #e0e0e0;
+  background-color: $tf-light-gray;
+  border-color: darken($tf-light-gray, 20%);
   border-radius: 2px;
   text-align: center;
   font-family: Arial;
   font-size: 0.75rem;
   pointer-events: none;
-  transition: background-color 0.1s ease-out;
+  transition: background-color 0.1s ease-out, border-color 0.1s ease-out;
 }
 .backspace {
   flex-basis: $key-size * 2;
@@ -81,15 +85,23 @@ $key-margin-base: 0.2em;
   flex-basis: $key-size * 1.25;
 }
 
+.keyF, .keyJ {
+  border-width: 1px;
+  border-style: dashed;
+}
 .keyPrompted {
-  background-color: #81c784;
+  background-color: $tf-green;
+  border-color: darken($tf-green, 20%);
 }
 .keyDowned {
-  background-color: #9575cd;
+  background-color: $tf-indigo;
+  border-color: darken($tf-indigo, 20%);
 }
 .keyPressed {
-  background-color: #ba68c8;
+  background-color: $tf-deep-purple;
+  border-color: darken($tf-deep-purple, 20%);
 }
 .keyReleased {
-  background-color: #64b5f6;
+  background-color: $tf-blue;
+  border-color: darken($tf-blue, 20%);
 }
