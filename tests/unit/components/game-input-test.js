@@ -57,13 +57,18 @@ test('it should prevent clipboard paste events', function (expect) {
   expect(event.defaultPrevented, clarification).to.be.true;
 });
 
-test('it should prevent mousedown events', function (expect) {
+test('it should prevent mousedown and contextmenu events', function (expect) {
   const component = this.subject();
   this.render();
-  const event = new MouseEvent('mousedown', {
-    cancelable: true,
-  });
-  component.element.querySelector('input').dispatchEvent(event);
-  const clarification = 'Should call .preventDefault() on the mousedown event';
+  const input = component.element.querySelector('input');
+
+  let event = new MouseEvent('mousedown', { cancelable: true });
+  input.dispatchEvent(event);
+  let clarification = 'Should call .preventDefault() on the mousedown event';
+  expect(event.defaultPrevented, clarification).to.be.true;
+
+  event = new MouseEvent('contextmenu', { cancelable: true });
+  input.dispatchEvent(event);
+  clarification = 'Should call .preventDefault() on the contextmenu event';
   expect(event.defaultPrevented, clarification).to.be.true;
 });
