@@ -9,7 +9,6 @@ export {
   moduleForComponent,
   moduleForModel,
   moduleFor,
-  module,
   skip,
   only,
   todo,

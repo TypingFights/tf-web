@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Service from '@ember/service';
 import hbs from 'htmlbars-inline-precompile';
 import { find, triggerEvent, waitUntil } from 'ember-native-dom-helpers';
 import { moduleForComponent, test } from '../../helpers/qunit-wrapper';
@@ -93,7 +93,7 @@ test('it should not send non-trusted events in production', async function (expe
   const inputSpy = this.spy();
   const eventBus = this.get('gameInputEventBus');
   eventBus.on('inputEvent', inputSpy);
-  const configServiceMock = Ember.Service.extend({
+  const configServiceMock = Service.extend({
     environment: 'production',
   });
   this.register('service:config', configServiceMock);

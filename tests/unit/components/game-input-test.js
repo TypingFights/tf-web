@@ -1,11 +1,11 @@
-import Ember from 'ember';
+import Service from '@ember/service';
 import { moduleForComponent, test } from '../../helpers/qunit-wrapper';
 
 moduleForComponent('game-input', 'Unit | Component | game input', {
   needs: ['helper:prevent-default', 'service:game-input-event-bus'],
   unit: true,
   beforeEach() {
-    const configServiceMock = Ember.Service.extend({
+    const configServiceMock = Service.extend({
       environment: 'test',
     });
     this.register('service:config', configServiceMock);
