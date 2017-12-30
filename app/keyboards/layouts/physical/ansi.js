@@ -68,6 +68,7 @@ export default class ANSIPhysicalLayout {
       'Space',
       'AltRight',
       'MetaRight',
+      'ContextMenu',
       'ControlRight',
     ],
   ];

@@ -1,3 +1,17 @@
+////
+/// Styles for the visual keyboard component.
+/// @access private
+/// @type Length
+/// @author Daniil Filippov <filippovdaniil@gmail.com>
+////
+
+/// Keyboard key size.
+$key-size: 3.25em;
+
+/// Keyboard key margins and paddings base value.
+$key-margin-base: 0.2em;
+
+
 .keyboard, .row {
   display: flex;
 }
@@ -5,19 +19,25 @@
 .keyboard {
   max-width: 100%;
   flex-direction: column;
+  margin-top: $key-margin-base;
 }
 
 .row {
+  margin-left: -$key-margin-base;
+  margin-right: -$key-margin-base;
   justify-content: space-between;
 }
 
 .key {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 40px;
-  height: 40px;
-  margin-top: 3px;
+  flex: 0 1 $key-size;
+  height: $key-size;
+  margin: $key-margin-base;
+  padding-left: $key-margin-base;
+  padding-right: $key-margin-base;
+  line-height: $key-size;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   background-color: #e0e0e0;
   border-radius: 2px;
   text-align: center;
@@ -27,35 +47,40 @@
   transition: background-color 0.1s ease-out;
 }
 .backspace {
-  width: 80px;
+  flex-basis: $key-size * 2;
 }
 .tab {
-  width: 55px;
+  flex-basis: $key-size * 1.375;
 }
 .backslash {
-  width: 65px;
+  flex-basis: $key-size * 1.625;
 }
 .capsLock {
-  width: 70px;
+  flex-basis: $key-size * 1.75;
 }
 .enter {
-  width: 95px;
+  flex-basis: $key-size * 2.25;
 }
 .shiftLeft {
-  width: 85px;
+  flex-basis: $key-size * 2.125;
 }
 .shiftRight {
-  width: 125px;
+  flex-basis: $key-size * 2.875;
 }
 .controlLeft,
-.altLeft,
-.altRight,
-.controlRight {
-  width: 55px;
+.altLeft {
+  flex-basis: $key-size * 1.375;
 }
 .space {
-  width: 325px;
+  flex-basis: $key-size * 8;
 }
+.altRight,
+.metaRight,
+.contextMenu,
+.controlRight {
+  flex-basis: $key-size * 1.25;
+}
+
 .keyPrompted {
   background-color: #81c784;
 }
