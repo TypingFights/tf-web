@@ -18,8 +18,8 @@ You will need the following things properly installed on your computer:
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd typing-fights`
+* `git clone https://github.com/TypingFights/tf-web.git --depth 1`
+* `cd tf-web`
 * `npm install`
 
 ## Running / Development
