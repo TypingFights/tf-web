@@ -1,5 +1,5 @@
-import regular from './en/regular';
+import Regular from './en/regular';
 
 export default {
-  regular,
+  Regular,
 };

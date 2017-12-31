@@ -14,7 +14,6 @@ export default Route.extend({
 
   model() {
     const language = 'en';
-    const userLayout = 'regular';
     /* eslint max-len: 0 */
     return {
       text: 'But his misery did not last long. Almost at once there came a bump, and then a second bump, and two children were standing before him. The wood in front of him had been quite empty a second before and he knew they had not come from behind his tree, for he would have heard them.',
@@ -22,7 +21,7 @@ export default Route.extend({
       language,
       layout: {
         physical: new layouts.physical.ANSI(),
-        logical: new layouts.logical[language][userLayout](),
+        logical: new layouts.logical[language].Regular(),
       },
       timeout: 5,
     };

@@ -1,5 +1,5 @@
-import regular from './ru/regular';
+import Regular from './ru/regular';
 
 export default {
-  regular,
+  Regular,
 };
