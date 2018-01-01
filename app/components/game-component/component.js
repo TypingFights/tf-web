@@ -43,8 +43,6 @@ export default class GameComponent extends Component {
 
   constructor(...args) {
     super(...args);
-    const socket = this.get('gameSocket').getInstance();
-    socket.on('message', this.onSocketMessage, this);
     this.get('gameCountdown').perform(this.get('parameters.timeout'));
     const eventBus = this.get('gameInputEventBus');
     eventBus.on('inputEvent', this, 'onInputEvent');
@@ -57,22 +55,6 @@ export default class GameComponent extends Component {
     eventBus.off('erase', this, 'onEraseEvent');
   }
 
-  onSocketMessage(message) {
-    const json = JSON.parse(message.data);
-    if (!json.code) {
-      return false;
-    }
-
-    const field = `keyboardState.${json.code}`;
-    if (json.type === 'keydown') {
-      return this.set(field, 1);
-    } else if (json.type === 'keypress') {
-      return this.set(field, 2);
-    }
-
-    return this.set(field, 0);
-  }
-
   gameCountdown = task(function* (seconds) {
     let countdown = set(this, 'secondsBeforeStart', seconds);
     while (countdown > 0) {
@@ -82,24 +64,40 @@ export default class GameComponent extends Component {
     this.set('startTime', performance.now());
   });
 
+  updateKeyboardState(message) {
+    const field = `keyboardState.${message.code}`;
+    if (message.type === 'keydown') {
+      return this.set(field, 1);
+    } else if (message.type === 'keypress') {
+      return this.set(field, 2);
+    }
+
+    return this.set(field, 0);
+  }
+
+  processKeyCharacter(message) {
+    if (this.get('hasError') || message.key !== this.get('currentSymbol')) {
+      this.incrementProperty('currentWrongSymbolsNumber');
+    } else {
+      if (message.key === ' ') {
+        this.get('gameInputEventBus').trigger('wordTyped');
+      }
+
+      if (this.get('currentSymbolPosition') === this.get('textLength') - 1) {
+        this.setProperties({
+          finished: true,
+          totalTimeMilliseconds: performance.now() - this.get('startTime'),
+        });
+      }
+      this.incrementProperty('currentSymbolPosition');
+    }
+  }
+
   onInputEvent(message) {
     if (message.printable) {
-      if (this.get('hasError') || message.key !== this.get('currentSymbol')) {
-        this.incrementProperty('currentWrongSymbolsNumber');
-      } else {
-        if (message.key === ' ') {
-          this.get('gameInputEventBus').trigger('wordTyped');
-        }
-
-        if (this.get('currentSymbolPosition') === this.get('textLength') - 1) {
-          this.setProperties({
-            finished: true,
-            totalTimeMilliseconds: performance.now() - this.get('startTime'),
-          });
-        }
-        this.incrementProperty('currentSymbolPosition');
-      }
+      this.processKeyCharacter(message);
     }
+    this.updateKeyboardState(message);
     this.get('gameSocket').send(message);
   }
 
