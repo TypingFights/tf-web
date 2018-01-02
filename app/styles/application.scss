@@ -4,6 +4,7 @@
 ////
 
 @import "settings";
+@import "colors";
 
 .wrapper {
   display: grid;
@@ -20,4 +21,12 @@
 .leftPanel {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+}
+
+.leftPanel, .rightPanel {
+  background-color: $tf-black;
+}
+
+.leftPanel, .main, .rightPanel {
+  padding: $layout-padding;
 }

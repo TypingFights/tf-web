@@ -8,6 +8,8 @@
 
 @import "../../../app/styles/colors";
 
+/// Keyboard maximum width.
+$keyboard-max-width: 65ch;
 /// Keyboard key size.
 $key-size: 3.25em;
 /// Keyboard key margins and paddings base value.
@@ -19,9 +21,9 @@ $key-margin-base: 0.2em;
 }
 
 .keyboard {
-  max-width: 100%;
+  max-width: $keyboard-max-width;
   flex-direction: column;
-  margin-top: $key-margin-base;
+  margin: $key-margin-base auto 0;
 }
 
 .row {
@@ -76,7 +78,7 @@ $key-margin-base: 0.2em;
   flex-basis: $key-size * 1.375;
 }
 .space {
-  flex-basis: $key-size * 8;
+  flex-basis: $key-size * 7;
 }
 .altRight,
 .metaRight,

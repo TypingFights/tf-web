@@ -8,4 +8,6 @@
 /// Grid column width value for the side panels.
 $layout-panel-width: minmax(min-content, 30ch);
 /// Grid column width value for the main content.
-$layout-content-width: minmax(min-content, 65ch);
+$layout-content-width: minmax(min-content, 50vw);
+/// Grid base padding value.
+$layout-padding: 1ch;
