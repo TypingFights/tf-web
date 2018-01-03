@@ -11,3 +11,13 @@ $layout-panel-width: minmax(min-content, 30ch);
 $layout-content-width: minmax(min-content, 50vw);
 /// Grid base padding value.
 $layout-padding: 1ch;
+
+/// Base font-family value for the body element.
+/// @type List
+$font-family-base: 'Lato', Arial, sans-serif;
+/// Base font-size value for the body element.
+$font-size-base: 1rem;
+/// Base line-height value for the body element.
+$line-height-base: 1.25;
+/// Base font-weight value for the body element.
+$font-weight-base: 300;
