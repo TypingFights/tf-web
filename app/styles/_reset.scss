@@ -14,4 +14,7 @@ body {
 
 input {
   font: inherit;
+  &:focus {
+    outline: none;
+  }
 }
