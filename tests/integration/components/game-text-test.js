@@ -18,3 +18,12 @@ test('it should hide the game text properly', async function (expect) {
   container = await find(`.${styles.default}`);
   expect(container.textContent.trim()).to.be.equal(text);
 });
+
+test('it should set the `lang` attribute properly', async function (expect) {
+  this.set('language', 'en');
+  this.render(hbs`{{game-text text='abc' language=language}}`);
+  const container = await find(`.${styles.default}`);
+  expect(container.getAttribute('lang')).to.be.equal('en');
+  this.set('language', 'ru');
+  expect(container.getAttribute('lang')).to.be.equal('ru');
+});

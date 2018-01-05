@@ -69,10 +69,6 @@ test('it should return the correct cursor data', function (expect) {
   expect(this.component.get('cursorData')).to.be.deep.equal(cursorData);
 });
 
-test('it should return the correct cursor data', function (expect) {
-  expect(this.component.get('cursorData')).to.be.deep.equal(cursorData);
-});
-
 test('it should create the data hash properly', function (expect) {
   expect(this.component.get('words').slice(2, 4)).to.be.deep.equal(dataHashSlice);
 });
